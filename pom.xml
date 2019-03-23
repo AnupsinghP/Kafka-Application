@@ -33,6 +33,7 @@
             <artifactId>slf4j-simple</artifactId>
             <version>1.7.25</version>
         </dependency>
+<<<<<<< HEAD
         <!--Twitter dependency-->
         <dependency>
             <groupId>com.twitter</groupId>
@@ -44,6 +45,10 @@
             <artifactId>commons-csv</artifactId>
             <version>1.5</version>
         </dependency>
+=======
+
+
+>>>>>>> a315e064db80243e3ae1205809a7713a96be5fb4
     </dependencies>
 
 </project>

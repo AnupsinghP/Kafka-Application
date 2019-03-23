@@ -1,6 +1,9 @@
 package com.kafka.java.app;
 
+<<<<<<< HEAD
 import com.kafka.java.CSVWriter.Writer;
+=======
+>>>>>>> a315e064db80243e3ae1205809a7713a96be5fb4
 import org.apache.kafka.clients.consumer.ConsumerRecord;
 import org.apache.kafka.clients.consumer.ConsumerRecords;
 import org.apache.kafka.clients.consumer.KafkaConsumer;
@@ -20,9 +23,13 @@ public class Consumer {
         String bootstrapServers = "127.0.0.1:9092";
         //GroupID
         String groupId = "my_first_app";
+<<<<<<< HEAD
 
 
         //topic to read from
+=======
+        //topic
+>>>>>>> a315e064db80243e3ae1205809a7713a96be5fb4
         String topic = "first_topic";
 
         /*Consumer properties
@@ -53,9 +60,12 @@ public class Consumer {
         //seek
         consumer.seek(partitionToReadFrom,offsetToReadFrom);
         */
+<<<<<<< HEAD
 
 
 
+=======
+>>>>>>> a315e064db80243e3ae1205809a7713a96be5fb4
         while(true){
             ConsumerRecords<String,String> records =
                     consumer.poll(Duration.ofMillis(100));
@@ -63,9 +73,12 @@ public class Consumer {
             for(ConsumerRecord<String, String> record:records){
                 logger.info("Key: "+record.key()+"\t Value: "+record.value());
                 logger.info("Partition: "+record.partition()+"\t Offset: "+record.offset());
+<<<<<<< HEAD
 
                 Writer writer = new Writer();
                 writer.writeCSV(record.value());
+=======
+>>>>>>> a315e064db80243e3ae1205809a7713a96be5fb4
             }
         }
     }
