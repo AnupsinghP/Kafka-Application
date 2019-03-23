@@ -1,5 +1,6 @@
 package com.kafka.java.app;
 
+import com.kafka.java.CSVWriter.Writer;
 import org.apache.kafka.clients.consumer.ConsumerRecord;
 import org.apache.kafka.clients.consumer.ConsumerRecords;
 import org.apache.kafka.clients.consumer.KafkaConsumer;
@@ -19,7 +20,9 @@ public class Consumer {
         String bootstrapServers = "127.0.0.1:9092";
         //GroupID
         String groupId = "my_first_app";
-        //topic
+
+
+        //topic to read from
         String topic = "first_topic";
 
         /*Consumer properties
@@ -50,6 +53,9 @@ public class Consumer {
         //seek
         consumer.seek(partitionToReadFrom,offsetToReadFrom);
         */
+
+
+
         while(true){
             ConsumerRecords<String,String> records =
                     consumer.poll(Duration.ofMillis(100));
@@ -57,6 +63,9 @@ public class Consumer {
             for(ConsumerRecord<String, String> record:records){
                 logger.info("Key: "+record.key()+"\t Value: "+record.value());
                 logger.info("Partition: "+record.partition()+"\t Offset: "+record.offset());
+
+                Writer writer = new Writer();
+                writer.writeCSV(record.value());
             }
         }
     }
